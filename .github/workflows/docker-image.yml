@@ -21,3 +21,19 @@ jobs:
       - run: docker build -t ghcr.io/yuhlop/zaharvaflya:1.0 .
       - run: docker push ghcr.io/yuhlop/zaharvaflya:1.0
       - run: ssh -o "StrictHostKeyChecking no" 'yuhlop-pytonskiyfile-3d8km3by2qi#lNdmP0Mnjk30lM4vc96bDnFHcpEJ4Xux@yuhlop-pytonskiyfile-3d8km3by2qi.ssh.ws-eu106.gitpod.io' 'cd /workspace/pytonskiyfile && docker compose pull && docker compose up -d'
+
+      - name: Send telegramm notify
+        uses: appleboy/telegram-action@master
+        if: success()
+        with:
+           to: 1045217218
+           token: 6952315780:AAH28VxKmYp3xZQ6DcKUcqKQfSiTOzIqMLE
+           message: "Контейнер успшено доставлен"
+
+      - name: Send telegramm notify
+        uses: appleboy/telegram-action@master
+        if: faillure()
+        with:
+           to: 1045217218
+           token: 6952315780:AAH28VxKmYp3xZQ6DcKUcqKQfSiTOzIqMLE
+           message: "Контейнер не получилось доставить"
