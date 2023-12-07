@@ -32,7 +32,7 @@ jobs:
 
       - name: Send telegramm notify
         uses: appleboy/telegram-action@master
-        if: faillure()
+        if: failure()
         with:
            to: 1045217218
            token: 6952315780:AAH28VxKmYp3xZQ6DcKUcqKQfSiTOzIqMLE
