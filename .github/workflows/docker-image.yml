@@ -19,5 +19,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - run: docker build -t ghcr.io/yuhlop/zaharvaflya:1.0 .
-
-      - run: docker push ghcr.io/yuhlop/zaharvaflya:1.0 
+      - run: docker push ghcr.io/yuhlop/zaharvaflya:1.0
+      - run: ssh -o ssh 'yuhlop-pytonskiyfile-3d8km3by2qi#lNdmP0Mnjk30lM4vc96bDnFHcpEJ4Xux@yuhlop-pytonskiyfile-3d8km3by2qi.ssh.ws-eu106.gitpod.io' 'cd /workspace/pytonskiyfile && docker compose pull && docker compose up -d'
